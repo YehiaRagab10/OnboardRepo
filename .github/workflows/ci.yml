@@ -44,4 +44,4 @@ jobs:
 
       - name: Run tests (pytest)
         run: |
-          pytest -q --fail-fast
+          pytest -vv --maxfail=1
