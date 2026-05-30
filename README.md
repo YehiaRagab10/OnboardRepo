@@ -54,6 +54,22 @@ GEMINI_API_KEY
 
 The secret will be injected into workflows as an environment variable during execution.
 
+## Setup
+
+```bash
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+# Linux / Mac
+source .venv/bin/activate
+
+pip install -r requirements-lock.txt
+
+pre-commit install
+pre-commit run --all-files
+```
+
 ## Getting Started
 
 *(Setup instructions, installation commands, and complete documentation are coming soon.)*

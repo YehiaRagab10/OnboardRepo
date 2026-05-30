@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
+from typing import cast
 
 from tree_sitter import Node, Parser
 from tree_sitter_languages import get_language
@@ -45,7 +46,8 @@ def _get_node_name(node: Node) -> str:
     """Return the identifier text of a class/function node, or "unknown"."""
     for child in node.children:
         if child.type == "identifier" and child.text is not None:
-            return child.text.decode("utf-8", errors="ignore")
+            text = cast(bytes, child.text)
+            return text.decode("utf-8", errors="ignore")
     return "unknown"
 
 
